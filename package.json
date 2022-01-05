@@ -1,0 +1,19 @@
+{
+  "name": "vk_chat_notificator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "easyvk": "^2.8.2",
+    "node-schedule": "^2.1.0",
+    "prettier": "^2.5.1",
+    "string": "^3.3.3"
+  }
+}
