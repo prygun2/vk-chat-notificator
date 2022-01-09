@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  main:
+    build: .
+    container_name: notify
+    restart: always
