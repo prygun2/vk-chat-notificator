@@ -3,11 +3,9 @@ const easyvk = require("easyvk");
 const S = require("string");
 // const fs = require("fs");
 
-// test
-
 const schedule = require("node-schedule");
 
-schedule.scheduleJob("*/10 * * * * *", () => {
+schedule.scheduleJob("*/5 * * * * *", () => {
   main();
 });
 
