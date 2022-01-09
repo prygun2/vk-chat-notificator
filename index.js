@@ -1,13 +1,13 @@
 require("dotenv").config();
 const easyvk = require("easyvk");
 const S = require("string");
-const fs = require("fs");
+// const fs = require("fs");
 
 // test
 
 const schedule = require("node-schedule");
 
-const job = schedule.scheduleJob("*/10 * * * * *", () => {
+schedule.scheduleJob("*/10 * * * * *", () => {
   main();
 });
 
@@ -34,10 +34,10 @@ const main = () => {
           const messages = response.items;
 
           const filteredMessages = messages.filter((message) => {
-            return message.date * 1000 > Date.now() - 60 * 60 * 24 * 1000;
+            return message.date * 1000 > Date.now() - 60 * 60 * 1000;
           });
 
-          const filtered = messages.filter((message) => {
+          const filtered = filteredMessages.filter((message) => {
             let flag = false;
             for (const substring of triggerSubstrings) {
               const contains = S(message.text.toLowerCase()).contains(
@@ -56,11 +56,11 @@ const main = () => {
             for (const message of filtered) {
               const textMessage = `Сообщение из чата: "${message?.text}"`;
 
-              // vk.post("messages.send", {
-              //   peer_id: vk.session.user_id,
-              //   message: textMessage,
-              //   random_id: easyvk.randomId(),
-              // });
+              vk.post("messages.send", {
+                peer_id: vk.session.user_id,
+                message: textMessage,
+                random_id: easyvk.randomId(),
+              });
             }
           }
 
